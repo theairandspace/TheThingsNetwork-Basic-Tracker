@@ -1,2 +1,2 @@
-# TheThingsNnetwork
+# TheThingsNetwork
 TheThingsNetwork Basic ABP Tracker
