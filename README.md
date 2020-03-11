@@ -1,4 +1,4 @@
-# TheThingsNetwork
+# TheThingsNetwork Arduino basic Tracker
 TheThingsNetwork Basic ABP Tracker
 
 Semtech SX1276/77/78/79 wiring
