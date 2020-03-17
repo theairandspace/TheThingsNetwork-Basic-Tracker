@@ -1,6 +1,6 @@
 # TTN Tracker 
 
-LMIC libraries are a good cohice but requires too much space and could be a problem using 32kb controllers, this code save space but can be used only in ABP and non confirming packets.
+LMIC libraries are a good choice but requires too much space and could be a problem using 32kb controllers, this code save space but can be used only in ABP and non confirming packets.
 
 ## Preliminary:
 
@@ -107,6 +107,36 @@ The possible combinations are:
 * SF10BW125
 * SF11BW125
 * SF12BW125
+
+## Payload Format
+
+to receive properly the data into thethingsnetwork console define the payload format as below.
+
+
+`function Decoder(bytes, port) {`
+`  // Decode an uplink message from a buffer`
+`  // (array) of bytes to an object of fields.`
+`var decoded = {};`
+
+`lat_decode = ((bytes[0]) << 24)`
+`+ ((bytes[1]) << 16)`
+`+ ((bytes[2]) << 8)`
+`+ ((bytes[3]));`
+
+`lon_decode = ((bytes[4]) << 24)`
+`+ ((bytes[5]) << 16)`
+`+ ((bytes[6]) << 8)`
+`+ ((bytes[7]));`
+
+`decoded.latitude = lat_decode / 10000000;`
+`decoded.longitude = lon_decode / 10000000;`
+
+`decoded.altitude =((((bytes[8]) << 8) + ((bytes[9])))*3.28084);//convertimos metros a pies`
+`decoded.groundspeed = bytes[10];`
+`decoded.truecourse = bytes[11]*2;// para ocupar solo un byte se envía el rumbo/2`
+
+`return decoded;`
+`}`
 
 more info at: https://airbox.space/
 
