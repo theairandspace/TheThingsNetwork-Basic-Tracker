@@ -154,3 +154,4 @@ to receive properly the data into thethingsnetwork console define the payload fo
 more info at: https://airbox.space/
 
 The Air and Space Box Program 2020.
+The Things Network Reus: https://www.thethingsnetwork.org/community/reus/

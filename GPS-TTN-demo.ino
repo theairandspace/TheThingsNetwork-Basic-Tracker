@@ -136,7 +136,7 @@ void preparar_trama_datos_gps(void)
   unsigned short sentences = 0, failed = 0;
 
   GPS.f_get_position(&flat, &flon);
-
+  // Akirasan rules ;)
   latitud = flat * 10000000; // multiply by 10 million to convert float to integer
   datos[0] = (byte) ((latitud & 0xFF000000) >> 24 );
   datos[1] = (byte) ((latitud & 0x00FF0000) >> 16 );
